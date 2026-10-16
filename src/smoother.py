@@ -122,21 +122,39 @@ def delete_redundant_points_single_pass(
 def delete_redundant_points(
     path: List[Tuple[int, int]],
     grid: GridMap,
+    mode: str = "multi_pass",
     max_passes: int = 5
 ) -> List[Tuple[int, int]]:
     """
-    Iteratively apply the 3-node redundant point deletion strategy until convergence.
-    This corresponds to Step 4 of the paper:
-    'Inspect all the nodes in the path node set and eliminate all superfluous nodes...'
+    Apply the 3-node redundant point deletion strategy.
+
+    Parameters:
+    - path: Ordered sequence of (x, y) coordinates from path search.
+    - grid: GridMap instance for obstacle collision checking.
+    - mode: "multi_pass" (default, iterates passes until convergence or max_passes)
+            or "single_pass" (executes exactly one sequential triplet pass over initial waypoints).
+    - max_passes: Maximum iterations when mode is "multi_pass".
+
+    Notes on Paper Fidelity:
+    - Step 4 of Section 3.3 in Cao et al. (2026) states: 'Inspect all the nodes in the path node set
+      and eliminate all superfluous nodes...'.
+    - 'single_pass' adheres strictly to an initial sequential pass over the A* node set.
+    - 'multi_pass' (the project default) allows newly joined shortcut vertices to be evaluated
+      iteratively, achieving maximum trajectory smoothing across open areas.
     """
     if len(path) <= 2:
         return list(path)
 
-    current_path = list(path)
-    for _ in range(max_passes):
-        new_path = delete_redundant_points_single_pass(current_path, grid)
-        if len(new_path) == len(current_path):
-            break
-        current_path = new_path
+    if mode == "single_pass":
+        return delete_redundant_points_single_pass(path, grid)
+    elif mode == "multi_pass":
+        current_path = list(path)
+        for _ in range(max_passes):
+            new_path = delete_redundant_points_single_pass(current_path, grid)
+            if len(new_path) == len(current_path):
+                break
+            current_path = new_path
+        return current_path
+    else:
+        raise ValueError(f"Unknown smoothing mode: '{mode}'. Supported modes are 'single_pass' and 'multi_pass'.")
 
-    return current_path

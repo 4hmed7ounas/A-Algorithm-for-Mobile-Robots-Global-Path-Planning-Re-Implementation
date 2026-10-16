@@ -1,9 +1,9 @@
 Map,Variant,Pub Time (s),Our Time (s),Pub Len (m),Our Len (m),Pub Nodes,Our Nodes,Pub Corners,Our Corners
-30x30,A* Baseline,0.04,0.001886,40.41,39.1127,130,190,9,9
-30x30,Adaptive Estimation Function,0.03,0.0012,40.2,39.6985,118,114,13,8
-30x30,Distance Model Optimization,0.02,0.000457,41.45,39.6985,45,41,9,7
-30x30,Redundant Point Deletion,0.02,0.002005,38.74,37.4339,130,190,5,0
-60x60,A* Baseline,0.18,0.013315,92.3,90.3259,716,1374,12,13
-60x60,Adaptive Estimation Function,0.09,0.008208,92.05,90.9117,412,762,12,15
-60x60,Distance Model Optimization,0.12,0.001795,91.08,90.3259,691,172,10,13
-60x60,Redundant Point Deletion,0.12,0.012834,87.49,86.4839,691,1374,7,3
+30x30,A* Baseline,0.04,0.001807,40.41,39.1127,130,190,9,9
+30x30,Adaptive Estimation Function,0.03,0.001172,40.2,39.6985,118,114,13,8
+30x30,Distance Model Optimization,0.02,0.000548,41.45,39.6985,45,41,9,7
+30x30,Redundant Point Deletion,0.02,0.002204,38.74,37.4339,130,190,5,0
+60x60,A* Baseline,0.18,0.018553,92.3,90.3259,716,1374,12,13
+60x60,Adaptive Estimation Function,0.09,0.009401,92.05,90.9117,412,762,12,15
+60x60,Distance Model Optimization,0.12,0.001848,91.08,90.3259,691,172,10,13
+60x60,Redundant Point Deletion,0.12,0.014614,87.49,86.4839,691,1374,7,3

@@ -90,7 +90,8 @@ def run_astar_search(
     start: Tuple[int, int],
     goal: Tuple[int, int],
     algorithm_type: str = "baseline_astar",
-    apply_smoothing: bool = False
+    apply_smoothing: bool = False,
+    smoothing_mode: str = "multi_pass"
 ) -> SearchResult:
     """
     Execute modular graph search.
@@ -207,7 +208,7 @@ def run_astar_search(
     # Post-processing / smoothing
     final_path = raw_path
     if success and raw_path is not None and apply_smoothing:
-        final_path = delete_redundant_points(raw_path, grid)
+        final_path = delete_redundant_points(raw_path, grid, mode=smoothing_mode)
 
     runtime = time.perf_counter() - t0
 
