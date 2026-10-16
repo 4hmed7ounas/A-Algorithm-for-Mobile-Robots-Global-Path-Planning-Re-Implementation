@@ -42,14 +42,14 @@ Following a comprehensive audit of the clean-room Python re-implementation, all 
   - Documented the empirical performance of both modes:
     - On $30\times 30$: Multi-pass yields 1 corner (38.44 m); Single-pass yields 3 corners (39.16 m); Raw yields 7 corners (39.70 m); Published Table 2 reports 7 corners (39.72 m).
     - On $60\times 60$: Multi-pass yields 2 corners (86.22 m); Single-pass yields 9 corners (89.66 m); Raw yields 17 corners (90.91 m); Published Table 3 reports 8 corners (90.89 m).
-    - On $100\times 100$: Multi-pass yields 4 corners (144.58 m); Single-pass yields 4 corners (144.58 m); Raw yields 21 corners (145.40 m); Published Table 4 reports 14 corners (140.67 m).
+    - On $100\times 100$: Multi-pass yields 4 corners (144.5842 m); Single-pass yields 9 corners (148.4114 m); Raw yields 16 corners (149.4802 m); Published Table 4 reports 14 corners (140.67 m).
   - Added Test 12 in `tests/test_astar.py` verifying that both smoothing modes produce collision-free paths.
 
 ### Finding F-04: Start-Equals-Goal Edge Case Safety
 * **Root Cause:** When `start == goal`, Euclidean distance $D = 0$, risking a potential `ZeroDivisionError` in $\omega(n) = \ln(1 + e^{d/D})$.
 * **Correction Executed:**
   - Verified that `src/astar.py` guards against $D = 0$ by clamping `D = max(D, 1e-6)` and immediately returning a valid single-node path when `start == goal`.
-  - Added Test 10 in `tests/test_astar.py` validating the public API result structure (`success=True`, `path=[(x, y)]`, `path_length=0.0`, `expanded_nodes=0`, `corners=0`) and verifying no division-by-zero occurs.
+  - Added Test 10 in `tests/test_astar.py` validating the public API result structure (`success=True`, `path=[(x, y)]`, `path_length=0.0`, `expanded_nodes=1`, `corners=0`) and verifying no division-by-zero occurs.
 
 ### Finding F-05: Untracked Bytecode & Missing `.gitignore`
 * **Root Cause:** Python compiled bytecode files (`.pyc`) under `src/__pycache__` and `tests/__pycache__` were tracked in the Git staging index.

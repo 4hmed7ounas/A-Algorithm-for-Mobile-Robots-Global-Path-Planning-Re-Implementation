@@ -45,8 +45,7 @@ This guide prepares you for the oral examination (Viva Voce) by providing techni
   *"No, and claiming exact numerical equivalence would be scientifically unsound because the original paper did not publish the MATLAB random seeds or binary obstacle matrices for the three environment maps. We independently generated deterministic synthetic maps matching the descriptive characteristics (irregular outdoor, indoor maze, dense warehouse arrays).*  
   *While absolute numbers depend on obstacle placement, our implementation fully reproduced the **relative quantitative and qualitative trends** reported in the paper:*  
   * *Search nodes were reduced by **67.9%** on $30 \times 30$, **71.2%** on $60 \times 60$, and **62.0%** on $100 \times 100$ (paper reported $72.3\%$, $62.6\%$, and $94.8\%$).*  
-  * *Corner turns were reduced by **81.8% to 89.9%** in multi-pass and **47% to 66%** in single-pass.*  
-  * *Path length was consistently shortened by $1.5\%$ to $5.1\%$.*  
+  * *Path length was comparable or slightly shorter (a $1.7\%$ to $4.5\%$ reduction on benchmark maps; within $-3.0\%$ to $+0.8\%$ across 10-seed Monte Carlo simulations, where Adaptive A* is -3.0% on 30x30, +0.8% on 60x60, and -0.3% on 100x100).*  
   * *Planning time was reduced by up to an order of magnitude."*
 
 ---

@@ -200,7 +200,7 @@ Every published number in `src/config.py` was checked against the text of [elect
 1. **Algorithmic Logic:** The core mathematical equations, graph search routines, and smoothing logic are 100% reproducible and run deterministically.
 2. **Relative Performance Trends:**  
    - Adaptive $A^*$ reduces expanded nodes by 62.0%–71.2% (paper: 62.6%–72.3%).
-   - Adaptive $A^*$ reduces path length by 1.5%–5.1% (paper: 1.5%–4.0%).
+   - Adaptive $A^*$ achieves comparable or improved path lengths (1.7%–4.5% reduction on benchmark maps; within $-3.0\%$ to $+0.8\%$ across 10-seed Monte Carlo simulations, compared to published 1.5%–4.0%).
    - Adaptive $A^*$ reduces corners by 81.8%–89.9% (paper: 44.4%–58.8%).
    - Dijkstra consistently expands the maximum number of nodes (689 on $30 \times 30$, 2843 on $60 \times 60$, 7851 on $100 \times 100$).
 3. **Reproducible Code Artifacts:** The provided random seeds (`seed=3030`, `seed=6060`, `seed=100100`) and saved `.npz` maps guarantee that any user on Windows, Linux, or macOS will obtain bit-identical results when re-running `run_experiments.py`.
@@ -292,7 +292,7 @@ Convert `report/ieee_technical_report.md` into a standard 2-column IEEE conferen
 
 #### Q3: "Did you reproduce the exact numerical results reported in the paper?"
 * **Answer:**  
-  *"No, and claiming exact numerical equivalence would be scientifically unsound because the authors did not publish the MATLAB obstacle matrices or random seeds. However, we successfully reproduced the exact **relative quantitative and qualitative trends**: expanded nodes dropped by 62.0%–71.2% (paper reported 62.6%–72.3%), path length was reduced by 1.5%–5.1%, and planning times were dramatically cut across all three map scales."*
+  *"No, and claiming exact numerical equivalence would be scientifically unsound because the authors did not publish the MATLAB obstacle matrices or random seeds. However, we successfully reproduced the exact **relative quantitative and qualitative trends**: expanded nodes dropped by 62.0%–71.2% (paper reported 62.6%–72.3%), path length was comparable or slightly shorter (a 1.7%–4.5% reduction on benchmark maps; within $-3.0\%$ to $+0.8\%$ across 10-seed Monte Carlo simulations), and planning times were dramatically cut across all three map scales."*
 
 #### Q4: "Why did your Python implementation run in 1–10 ms while the paper reported 10–700 ms in MATLAB?"
 * **Answer:**  
