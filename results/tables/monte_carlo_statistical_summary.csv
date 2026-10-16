@@ -1,0 +1,4 @@
+Map Size,A* Nodes (Mean±Std),Adap Nodes (Mean±Std),Node Reduction (%),A* Length (Mean±Std),Adap Length (Mean±Std),A* Corners (Mean±Std),Adap Corners (Mean±Std),Corner Reduction (%)
+30x30,267.4 ± 70.5,84.8 ± 25.4,67.9%,41.01 ± 1.12,39.76 ± 1.44,9.9 ± 3.2,1.2 ± 1.0,88.9%
+60x60,1177.5 ± 259.7,333.9 ± 85.0,71.2%,91.58 ± 3.40,92.28 ± 5.39,16.7 ± 4.3,1.5 ± 1.0,89.9%
+100x100,3278.3 ± 333.2,1239.6 ± 152.2,62.0%,150.89 ± 1.30,150.41 ± 2.10,28.0 ± 4.9,4.9 ± 1.2,81.8%
